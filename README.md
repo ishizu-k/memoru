@@ -10,7 +10,7 @@
 - PostgreSQL 11.3
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit#gid=1971448757
+https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit?usp=sharing
 
 ## 機能一覧
 - ユーザー登録・編集・削除
@@ -24,17 +24,16 @@ https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkG
 - タグ機能
 
 ## テーブル定義書
-https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit#gid=794926711
+https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit?usp=sharing
 
 ## ER図
-https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit#gid=610171760
+https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit?usp=sharing
 
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit#gid=74102218
+https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit?usp=sharing
 
 ## ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit#gid=1674441277
-
+https://docs.google.com/spreadsheets/d/16yWyk6qbkMHT7fhEOzx5eYJRd5igDB2keTQ9nqkGORI/edit?usp=sharing
 
 ## 使用予定Gem
 - devise
