@@ -1,0 +1,3 @@
+class MeetingLogsController < ApplicationController
+
+end

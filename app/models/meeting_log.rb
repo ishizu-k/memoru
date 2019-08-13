@@ -1,0 +1,2 @@
+class MeetingLog < ApplicationRecord
+end
