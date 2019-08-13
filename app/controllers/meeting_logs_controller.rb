@@ -31,6 +31,8 @@ class MeetingLogsController < ApplicationController
 
   def destroy
     @meeting_log.destroy
+    redirect_to meeting_logs_path
+    flash[:notice] = "対象の記録を削除しました"
   end
 
   private
