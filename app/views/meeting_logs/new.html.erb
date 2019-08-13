@@ -1,0 +1,5 @@
+<h3>対象の新規作成画面</h3>
+<%= form_with(model: @meeting_log, local: true) do |f| %>
+  <%= render partial: "form", locals: {f: f } %>
+  <%= f.submit "記録する" %>
+<% end %>
