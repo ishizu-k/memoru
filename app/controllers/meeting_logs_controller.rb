@@ -19,8 +19,7 @@ class MeetingLogsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @meeting_log.update(meeting_log_params)
@@ -31,8 +30,7 @@ class MeetingLogsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @meeting_log.destroy
