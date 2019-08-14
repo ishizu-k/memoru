@@ -35,6 +35,7 @@
   <tr>
     <th><%= f.label :image, "イメージ画像" %></th>
     <td><%= f.file_field :image %></td>
+    <%= f.hidden_field :image_cache %>
   </tr>
   <tr>
     <th>タグ</th>

@@ -4,7 +4,7 @@
 <table>
   <% @meeting_logs.each do |m| %>
     <tr>
-      <td>image</td>
+      <td><%= image_tag m.image.url %></td>
     </tr>
     <tr>
       <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
