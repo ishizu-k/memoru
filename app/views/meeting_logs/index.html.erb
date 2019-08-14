@@ -7,7 +7,7 @@
       <td>image</td>
     </tr>
     <tr>
-      <td><%= m.name %> さん</td>
+      <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
     </tr>
     <tr>
       <td><%= m.position %></td>
