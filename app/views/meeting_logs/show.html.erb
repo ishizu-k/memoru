@@ -1,0 +1,40 @@
+<h3>対象の詳細画面</h3>
+
+<%= image_tag @meeting_log.image.url %>
+<table>
+  <tr>
+<!-- statusはまだenum未実装 -->
+    <td>状態：<%= @meeting_log.status %></td>
+  </tr>
+  <tr>
+    <td>名前：<%= @meeting_log.name %>さん</td>
+  </tr>
+  <tr>
+    <td>肩書き：<%= @meeting_log.position %></td>
+  </tr>
+  <tr>
+<!-- タグ機能実装後、ここにtag -->
+    <td>タグ：タグ</td>
+  </tr>
+  <tr>
+    <td>年齢：<%= @meeting_log.age %></td>
+  </tr>
+  <tr>
+    <td>血液型：<%= @meeting_log.blood %>型</td>
+  </tr>
+  <tr>
+    <td>誕生日：<%= @meeting_log.birth %></td>
+  </tr>
+  <tr>
+    <td>出身：<%= @meeting_log.hometown %></td>
+  </tr>
+  <tr>
+    <td>外見的特徴：<%= @meeting_log.look %></td>
+  </tr>
+  <tr>
+    <td>備考欄：<%= @meeting_log.other %></td>
+  </tr>
+</table>
+
+<p>追加エピソード</p>
+<!-- ここにコメント機能を実装する -->
