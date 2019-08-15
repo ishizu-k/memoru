@@ -3,6 +3,7 @@ class MeetingLogsController < ApplicationController
 
   def index
     @meeting_logs = MeetingLog.all
+    @tags = Tag.all
   end
 
   def new
@@ -41,7 +42,8 @@ class MeetingLogsController < ApplicationController
   private
 
   def meeting_log_params
-    params.require(:meeting_log).permit(:name, :day, :place, :memo, :how, :image, :image_cache, :position, :status, :age, :look, :birth, :blood, :hometown, :other)
+    params.require(:meeting_log).permit(:name, :day, :place, :memo, :how, :image, :image_cache, :position,
+                                        :status, :age, :look, :birth, :blood, :hometown, :other, tag_ids:[])
   end
 
   def set_meeting_log

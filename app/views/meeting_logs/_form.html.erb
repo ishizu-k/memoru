@@ -39,7 +39,12 @@
   </tr>
   <tr>
     <th>タグ</th>
-    <!-- タグ機能作成後に実装する -->
+　  <td>
+      <% Tag.all.each do |tag| %>
+        <%= f.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false }, tag[:id] %>
+        <%= tag.name %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th><%= f.label :age, "年齢" %></th>
