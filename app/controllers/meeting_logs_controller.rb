@@ -31,7 +31,9 @@ class MeetingLogsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @tags = Tag.all
+  end
 
   def destroy
     @meeting_log.destroy

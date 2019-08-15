@@ -13,8 +13,12 @@
     <td>肩書き：<%= @meeting_log.position %></td>
   </tr>
   <tr>
-<!-- タグ機能実装後、ここにtag -->
-    <td>タグ：タグ</td>
+    <td>
+      タグ：
+      <% @meeting_log.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <td>年齢：<%= @meeting_log.age %></td>

@@ -13,7 +13,11 @@
       <td><%= m.position %></td>
     </tr>
     <tr>
-      <td>#tag</td>
+      <td>
+        <% m.tags.each do |tag| %>
+          #<%= tag.name %>
+          <% end %>
+      </td>
     </tr>
     <tr>
       <td>
