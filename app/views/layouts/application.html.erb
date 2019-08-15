@@ -10,6 +10,23 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+<!-- ログインしている時、表示する -->
+        <li><%= link_to "一覧", meeting_logs_path %></li>
+        <li><%= link_to '記録する', new_meeting_log_path %></li>
+        <li>マイページ</li>
+        <li><%= link_to "タグ管理", tags_path %></li>
+        <li>ログアウト</li>
+<!-- ログインしていない時、表示する -->
+        <li>ユーザー登録</li>
+        <li>ログイン</li>
+      </ul>
+    </header>
+
     <%= yield %>
+
+    <footer>
+    </footer>
   </body>
 </html>

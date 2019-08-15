@@ -3,6 +3,7 @@ class MeetingLogsController < ApplicationController
 
   def index
     @meeting_logs = MeetingLog.all
+    @tags = Tag.all
   end
 
   def new
@@ -19,8 +20,7 @@ class MeetingLogsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @meeting_log.update(meeting_log_params)
@@ -32,6 +32,7 @@ class MeetingLogsController < ApplicationController
   end
 
   def show
+    @tags = Tag.all
   end
 
   def destroy
@@ -43,7 +44,8 @@ class MeetingLogsController < ApplicationController
   private
 
   def meeting_log_params
-    params.require(:meeting_log).permit(:name, :day, :place, :memo, :how, :image, :image_cache, :position, :status, :age, :look, :birth, :blood, :hometown, :other)
+    params.require(:meeting_log).permit(:name, :day, :place, :memo, :how, :image, :image_cache, :position,
+                                        :status, :age, :look, :birth, :blood, :hometown, :other, tag_ids:[])
   end
 
   def set_meeting_log

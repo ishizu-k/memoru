@@ -10,6 +10,8 @@ class MeetingLog < ApplicationRecord
   validates :look, length: { maximum: 300 }
   validates :hometown, length: { maximum: 100 }
   validates :other, length: { maximum: 500 }
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings, source: :tag
   mount_uploader :image, ImageUploader
 
   private
