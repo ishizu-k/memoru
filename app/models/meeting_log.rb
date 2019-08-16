@@ -13,6 +13,7 @@ class MeetingLog < ApplicationRecord
   validates :other, length: { maximum: 500 }
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
+  enum status: { 記憶中: 0, 記憶完了: 1 }
   mount_uploader :image, ImageUploader
 
   search_scope :search do
