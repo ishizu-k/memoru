@@ -75,3 +75,6 @@ gem 'bullet'
 
 # search
 gem 'search_cop'
+
+# login
+gem 'devise'
