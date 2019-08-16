@@ -12,6 +12,7 @@ class MeetingLogsController < ApplicationController
     else
       redirect_to meeting_logs_path
     end
+    @meeting_logs = MeetingLog.all.order(:status) if params[:sort_status]
   end
 
   def new
@@ -53,7 +54,7 @@ class MeetingLogsController < ApplicationController
 
   def meeting_log_params
     params.require(:meeting_log).permit(:name, :day, :place, :memo, :how, :image, :image_cache, :position,
-                                        :status, :age, :look, :birth, :blood, :hometown, :other, tag_ids:[])
+                                        :status, :age, :look, :birth, :blood, :hometown, :other, :sort_status, tag_ids:[])
   end
 
   def set_meeting_log
