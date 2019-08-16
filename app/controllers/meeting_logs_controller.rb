@@ -6,11 +6,9 @@ class MeetingLogsController < ApplicationController
     if params[:meeting_log].nil?
       @meeting_logs = MeetingLog.all
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
-      @meeting_logs = MeetingLog.where("name LIKE ?", "%#{ params[:meeting_log][:name] }%")
+      @meeting_logs = MeetingLog.search(params[:meeting_log][:name])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
-      @tag_id = Tag.where(name: params[:meeting_log][:tag_id]).select("id")
-      @meeting_log_id = Tagging.where(tag_id: @tag_id).pluck(:meeting_log_id)
-      @meeting_logs = MeetingLog.where(id: @meeting_log_id)
+      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id])
     else
       redirect_to meeting_logs_path
     end

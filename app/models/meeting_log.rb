@@ -1,4 +1,5 @@
 class MeetingLog < ApplicationRecord
+  include  SearchCop
   before_validation :day_cannot_future
   validates :name, presence: true, length: { maximum: 30 }, uniqueness: true
   validates :day, presence: true
@@ -13,6 +14,11 @@ class MeetingLog < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
   mount_uploader :image, ImageUploader
+
+  search_scope :search do
+    attributes :name
+    attributes tag: ["tags.name"]
+  end
 
   private
 
