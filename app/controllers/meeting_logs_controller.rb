@@ -2,7 +2,11 @@ class MeetingLogsController < ApplicationController
   before_action :set_meeting_log, only: [:edit, :update, :show, :destroy]
 
   def index
-    @meeting_logs = MeetingLog.all
+    if params[:meeting_log].nil?
+      @meeting_logs = MeetingLog.all
+    elsif params[:meeting_log][:search]
+      @meeting_logs = MeetingLog.where("name LIKE ?", "%#{ params[:meeting_log][:name] }%")
+    end
     @tags = Tag.all
   end
 
