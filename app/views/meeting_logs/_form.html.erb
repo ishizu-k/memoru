@@ -1,0 +1,75 @@
+<% if @meeting_log.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @meeting_log.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<table>
+  <tr>
+    <th><%= f.label :name, "名前" %></th>
+    <td><%= f.text_field :name %> さん</td>
+  </tr>
+  <tr>
+    <th><%= f.label :position, "肩書き" %></th>
+    <td><%= f.text_field :position %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :day, "when?" %></th>
+    <td><%= raw sprintf(f.date_select(:day, start_year: (Time.now.year - 1), end_year: (Time.now.year), use_month_numbers: true, date_separator: '%s'), '年 ', '月 ') + '日' %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :place, "where?" %></th>
+    <td><%= f.text_field :place %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :memo, "what?" %></th>
+    <td><%= f.text_field :memo %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :how, "how?" %></th>
+    <td><%= f.text_field :how %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :image, "イメージ画像" %></th>
+    <td><%= f.file_field :image %></td>
+    <%= f.hidden_field :image_cache %>
+  </tr>
+  <tr>
+    <th>タグ</th>
+　  <td>
+      <% Tag.all.each do |tag| %>
+        <%= f.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false }, tag[:id] %>
+        <%= tag.name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label :age, "年齢" %></th>
+    <td><%= f.number_field :age, min: 0, max: 120 %> 歳</td>
+  </tr>
+  <tr>
+    <th><%= f.label :look, "外見的特徴" %></th>
+    <td><%= f.text_area :look %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :birth, "誕生日" %></th>
+    <td><%= raw sprintf(f.date_select(:birth, start_year: 1900, end_year:(Time.now.year), include_blank: true, use_month_numbers: true, date_separator: '%s'), '年 ', '月 ') + '日' %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :blood, "血液型" %></th>
+    <!-- enumに書き換える -->
+    <td><%= f.select :blood, ["A", "B", "O", "AB", "不明"], prompt: "選択" %> 型</td>
+  </tr>
+  <tr>
+    <th><%= f.label :hometown, "出身" %></th>
+    <td><%= f.text_field :hometown %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :other, "備考欄" %></th>
+    <td><%= f.text_area :other %></td>
+  </tr>
+  <%= f.hidden_field :status %>
+</table>

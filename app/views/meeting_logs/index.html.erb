@@ -1,0 +1,45 @@
+<h3>対象の一覧画面</h3>
+<%= flash[:notice] %>
+
+<!-- 検索＆ソート -->
+<div class="sort">
+  <%= link_to "記憶状況でソートする", meeting_logs_path(sort_status: "true") %>
+</div>
+<div class="search">
+  <%= form_with(model: MeetingLog.new, url: meeting_logs_path, local: true, method: 'get') do |f| %>
+    <%= f.text_field :name, placeholder: "対象の名前から検索" %>　
+    <%= f.select :tag_id, @tags.pluck(:name), prompt: "タグから検索" %>
+    <%= f.hidden_field :search, value: 'true' %>　
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
+<br>
+
+<table>
+  <% @meeting_logs.each do |m| %>
+    <tr>
+      <td><%= image_tag m.image.url %></td>
+    </tr>
+    <tr>
+      <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
+    </tr>
+    <tr>
+      <td><%= m.position %></td>
+    </tr>
+    <tr>
+      <td>
+        <% m.tags.each do |tag| %>
+          #<%= tag.name %>
+          <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= m.status %>,
+        <%= link_to "編集", edit_meeting_log_path(m.id) %>
+        <%= link_to "削除", meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
