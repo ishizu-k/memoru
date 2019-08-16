@@ -2,8 +2,17 @@ class MeetingLogsController < ApplicationController
   before_action :set_meeting_log, only: [:edit, :update, :show, :destroy]
 
   def index
-    @meeting_logs = MeetingLog.all
     @tags = Tag.all
+    if params[:meeting_log].nil?
+      @meeting_logs = MeetingLog.all
+    elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
+      @meeting_logs = MeetingLog.search(params[:meeting_log][:name])
+    elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
+      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id])
+    else
+      redirect_to meeting_logs_path
+    end
+    @meeting_logs = MeetingLog.all.order(:status) if params[:sort_status]
   end
 
   def new
@@ -45,7 +54,7 @@ class MeetingLogsController < ApplicationController
 
   def meeting_log_params
     params.require(:meeting_log).permit(:name, :day, :place, :memo, :how, :image, :image_cache, :position,
-                                        :status, :age, :look, :birth, :blood, :hometown, :other, tag_ids:[])
+                                        :status, :age, :look, :birth, :blood, :hometown, :other, :sort_status, tag_ids:[])
   end
 
   def set_meeting_log
