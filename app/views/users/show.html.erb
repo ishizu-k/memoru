@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>マイページ</h3>
+<table>
+  <tr>
+    <th><%= "ユーザー名" %></th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th><%= "Eメールアドレス" %></th>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+
+<div>
+  <ul>
+    <li><%= link_to "プロフィールを編集する", edit_user_registration_path %></li>
+    <li><%= link_to "出会った人を記録する", new_meeting_log_path %></li>
+    <li><%= link_to "タグを管理する", tags_path %></li>
+  </ul>
+</div>
