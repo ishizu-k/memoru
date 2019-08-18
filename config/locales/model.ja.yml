@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      meeting_log: "対象"
+      tag: "タグ"
+      user: "ユーザー"
+    attributes:
+      meeting_log:
+        name: "名前"
+        day: "when"
+        place: "where"
+        memo: "what"
+        how: "how"
+        image: "イメージ画像"
+        position: "肩書き"
+        status: "記憶の状態"
+        age: "年齢"
+        look: "外見的特徴"
+        birth: "誕生日"
+        blood: "血液型"
+        hometown: "出身"
+        other: "備考"
+      tag:
+        name: "タグ名"
+      user:
+        name: "ユーザー名"
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
