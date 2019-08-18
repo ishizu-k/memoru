@@ -15,7 +15,7 @@
         <% if user_signed_in? %>
           <li><%= link_to "一覧", meeting_logs_path %></li>
           <li><%= link_to '記録する', new_meeting_log_path %></li>
-          <li>マイページ</li>
+          <li>マイページ <%= link_to 'プロフィール編集（暫定設置）', edit_user_registration_path %></li>
           <li><%= link_to "タグ管理", tags_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         <% else %>
