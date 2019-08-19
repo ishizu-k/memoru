@@ -3,7 +3,7 @@
 <%= image_tag @meeting_log.image.url %>
 <table>
   <tr>
-<!-- statusはまだenum未実装 -->
+
     <td>状態：<%= @meeting_log.status %></td>
   </tr>
   <tr>
@@ -42,3 +42,12 @@
 
 <p>追加エピソード</p>
 <!-- ここにコメント機能を実装する -->
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, meeting_log: @meeting_log } %>
+</div>
+
+<%= render partial: 'comments/form', locals: { comment: @comment, meeting_log: @meeting_log } %>
+
+<%= link_to '編集', edit_meeting_log_path(@meeting_log) %> |
+<%= link_to '戻る', meeting_logs_path %>
+</div>
