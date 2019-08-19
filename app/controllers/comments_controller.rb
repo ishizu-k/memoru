@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js { render :index }
       else
-        format.html { redirect_to meeting_log_path(@meeting_log), notice: '投稿できませんでした' }
+        format.html { redirect_to meeting_log_path(@meeting_log), alert: '投稿できませんでした' }
       end
     end
   end
