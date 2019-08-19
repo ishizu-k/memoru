@@ -11,7 +11,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      render :index
+      flash[:notice] = "削除しました"
+    end
+  end
+
   private
+
   def comment_params
     params.require(:comment).permit(:meeting_log_id, :content)
   end
