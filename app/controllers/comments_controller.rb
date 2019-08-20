@@ -11,6 +11,41 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.js { render :edit_form }
+      else
+        format.html { redirect_to meeting_log_path(@meeting_log), alert: '編集できませんでした' }
+      end
+    end
+  end
+
+  # def update
+  #   @comment = Comment.find(params[:id])
+  #   respond_to do |format|
+  #     if @comment.update(comment_params)
+  #       format.js { render :index }
+  #     else
+  #       format.html { redirect_to meeting_log_path(@meeting_log), alert: '投稿できませんでした' }
+  #     end
+  #   end
+  # end
+  #
+  #   if @comment.update(comment_params)
+  #     redirect_to tasks_path
+  #     flash[:notice] = "編集しました"
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
+
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy

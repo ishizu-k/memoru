@@ -44,7 +44,7 @@
 <div id="comments_area">
   <%= render partial: 'comments/index', locals: { comments: @comments, meeting_log: @meeting_log } %>
 </div>
-
+<p>入力用フォーム</p>
 <%= render partial: 'comments/form', locals: { comment: @comment, meeting_log: @meeting_log } %>
 
 <%= link_to '編集', edit_meeting_log_path(@meeting_log) %> |
