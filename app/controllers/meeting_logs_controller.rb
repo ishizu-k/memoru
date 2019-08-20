@@ -42,6 +42,8 @@ class MeetingLogsController < ApplicationController
 
   def show
     @tags = Tag.all
+    @comments = @meeting_log.comments
+    @comment = @meeting_log.comments.build
   end
 
   def destroy

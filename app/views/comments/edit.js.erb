@@ -1,0 +1,2 @@
+$("#edit_area").html("<%= j(render 'comments/edit_form', { comments: @comment.meeting_log.comments, meeting_log: @comment.meeting_log }) %>")
+$("textarea").val('')
