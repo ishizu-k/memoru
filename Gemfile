@@ -79,4 +79,8 @@ gem 'search_cop'
 # login
 gem 'devise'
 
+# heroku log
 gem 'rails_12factor', group: :production
+
+# enum
+gem 'enum_help'
