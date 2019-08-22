@@ -78,3 +78,5 @@ gem 'search_cop'
 
 # login
 gem 'devise'
+
+gem 'rails_12factor', group: :production
