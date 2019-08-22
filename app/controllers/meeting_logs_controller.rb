@@ -4,7 +4,7 @@ class MeetingLogsController < ApplicationController
   def index
     @tags = Tag.all
     if params[:meeting_log].nil?
-      @meeting_logs = MeetingLog.all
+      @meeting_logs = MeetingLog.page(params[:page]).per(9)
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
       @meeting_logs = MeetingLog.search(params[:meeting_log][:name])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
