@@ -204,3 +204,11 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  enums:
+    meeting_log:
+      blood:
+        A_type: A型
+        B_type: B型
+        O_type: O型
+        AB_type: AB型
+        unknown: 不明
