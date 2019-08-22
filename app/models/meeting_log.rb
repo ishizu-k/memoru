@@ -15,7 +15,7 @@ class MeetingLog < ApplicationRecord
   has_many :tags, through: :taggings, source: :tag
   has_many :comments, dependent: :destroy
   enum status: { 記憶中: 0, 記憶完了: 1 }
-  enum blood: { A: 0, B: 1, O: 2, AB: 3, 不明: 4 }
+  enum blood: { unknown: 0, A_type: 1, B_type: 2, O_type: 3, AB_type: 4 }
   mount_uploader :image, ImageUploader
 
   search_scope :search do

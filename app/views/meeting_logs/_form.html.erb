@@ -60,8 +60,7 @@
   </tr>
   <tr>
     <th><%= f.label :blood, "血液型" %></th>
-    <!-- enumに書き換える -->
-    <td><%= f.select :blood, ["A", "B", "O", "AB", "不明"], prompt: "選択" %> 型</td>
+    <td><%= f.select :blood, MeetingLog.bloods_i18n.keys.map {|k| [MeetingLog.bloods_i18n[k], k]} %></td>
   </tr>
   <tr>
     <th><%= f.label :hometown, "出身" %></th>
