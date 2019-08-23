@@ -12,37 +12,19 @@
   <% end %>
 </div>
 
-<div class="learning">
-  <%= link_to "名前だけ表示する", name_only_meeting_logs_path %>
-  <%= link_to "画像だけ表示する", name_only_meeting_logs_path %>
-</div>
-
 <br>
 
 <table>
   <% @meeting_logs.each do |m| %>
     <tr>
+      <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
+    </tr>
+    <tr><<td>▼画像を表示する</td></tr>
+    <tr>
       <td><%= image_tag m.image.url %></td>
     </tr>
     <tr>
-      <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
-    </tr>
-    <tr>
       <td><%= m.position %></td>
-    </tr>
-    <tr>
-      <td>
-        <% m.tags.each do |tag| %>
-          #<%= tag.name %>
-          <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= m.status %>,
-        <%= link_to "編集", edit_meeting_log_path(m.id) %>
-        <%= link_to "削除", meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"} %>
-      </td>
     </tr>
   <% end %>
 </table>
