@@ -1,21 +1,4 @@
-<h3>対象の一覧画面</h3>
-
-<div class="sort">
-  <%= link_to "記憶状況でソートする", meeting_logs_path(sort_status: "true") %>
-</div>
-<div class="search">
-  <%= form_with(model: MeetingLog.new, url: meeting_logs_path, local: true, method: 'get') do |f| %>
-    <%= f.text_field :name, placeholder: "対象の名前から検索" %>　
-    <%= f.select :tag_id, @tags.pluck(:name), prompt: "タグから検索" %>
-    <%= f.hidden_field :search, value: 'true' %>　
-    <%= f.submit "検索" %>
-  <% end %>
-</div>
-
-<div class="learning">
-  <%= link_to "名前だけ表示する", name_only_meeting_logs_path %>
-  <%= link_to "画像だけ表示する", name_only_meeting_logs_path %>
-</div>
+<%= render partial: "menu" %>
 
 <br>
 
