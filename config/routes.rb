@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'users#show' #暫定的なroot
+  root to: 'users#index'
   devise_for :users
   resources :meeting_logs do
     resources :comments
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
   resources :tags, only:[:index, :create, :destroy]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
 end

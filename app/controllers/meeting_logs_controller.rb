@@ -1,4 +1,5 @@
 class MeetingLogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_meeting_log, only: [:edit, :update, :show, :destroy]
 
   def index
