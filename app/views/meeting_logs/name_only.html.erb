@@ -7,9 +7,13 @@
     <tr>
       <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
     </tr>
-    <tr><<td>▼画像を表示する</td></tr>
     <tr>
-      <td><%= image_tag m.image.url %></td>
+      <td>
+        <details>
+          <summary>画像を表示する</summary>
+          <%= image_tag m.image.url %>
+        </details>
+      </td>
     </tr>
     <tr>
       <td><%= m.position %></td>
