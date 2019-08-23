@@ -66,6 +66,20 @@ class MeetingLogsController < ApplicationController
     @meeting_logs = MeetingLog.all.order(:status).page(params[:page]) if params[:sort_status]
   end
 
+  def image_only
+    @tags = Tag.all
+    if params[:meeting_log].nil?
+      @meeting_logs = MeetingLog.page(params[:page])
+    elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
+      @meeting_logs = MeetingLog.search(params[:meeting_log][:name]).page(params[:page])
+    elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
+      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
+    else
+      redirect_to meeting_logs_path
+    end
+    @meeting_logs = MeetingLog.all.order(:status).page(params[:page]) if params[:sort_status]
+  end
+
   private
 
   def meeting_log_params
