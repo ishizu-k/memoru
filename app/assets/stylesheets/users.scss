@@ -16,3 +16,59 @@
 .field {
   margin-bottom: 30px;
 }
+
+.box_mypage {
+  padding: 30px 10px;
+  margin: auto;
+  width: 600px;
+  line-height: 25px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.mypage-table {
+  margin: auto;
+}
+
+.mypage-intable1 {
+  width: 200px;
+  text-align: center;
+}
+
+.mypage-intable2 {
+  width: 300px;
+  line-height: 30px;
+}
+
+.mypage-intable2 th {
+  padding-left: 30px;
+  color: #89c3eb;
+}
+
+.mypage-intable2 td {
+  padding-left: 60px;
+  padding-bottom: 20px;
+}
+
+.circle {
+  display: inline-block;
+  color: #474a4d;
+  width: 150px;
+  height: 150px;
+  margin: 50px 20px;
+  line-height: 150px;
+  border-radius: 50%;
+  text-align: center;
+  // overflow: hidden;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+a, a:visited, a:focus, a:hover {
+  text-decoration: none;
+}
+
+.user-menu {
+  text-align: center;
+}

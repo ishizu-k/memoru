@@ -1,22 +1,31 @@
 <h3>マイページ</h3>
 
-<%= image_tag @user.image.url %>
+<div class="box_mypage">
+  <table class="mypage-table">
+    <tr>
+      <td>
+        <table class="mypage-intable1">
+          <tr><td><%= image_tag @user.image.url %></td></tr>
+          <tr><td><%= link_to "プロフィールを編集する", edit_user_registration_path %></td></tr>
+        </table>
+      </td>
+      <td>
+        <table class="mypage-intable2">
+          <tr><th><%= "ユーザー名" %></th></tr>
+          <tr><td><%= @user.name %></td></tr>
+          <tr><th><%= "Eメールアドレス" %></th></tr>
+          <tr><td><%= @user.email %></td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
 
-<table>
-  <tr>
-    <th><%= "ユーザー名" %></th>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <th><%= "Eメールアドレス" %></th>
-    <td><%= @user.email %></td>
-  </tr>
-</table>
-
-<div>
-  <ul>
-    <li><%= link_to "プロフィールを編集する", edit_user_registration_path %></li>
-    <li><%= link_to "出会った人を記録する", new_meeting_log_path %></li>
-    <li><%= link_to "タグを管理する", tags_path %></li>
-  </ul>
+<div class="user-menu">
+  <div class="circle">
+    <%= link_to "出会った人を記録する", new_meeting_log_path %>
+  </div>
+  <div class="circle">
+    <%= link_to "タグを管理する", tags_path %>
+  </div>
 </div>
