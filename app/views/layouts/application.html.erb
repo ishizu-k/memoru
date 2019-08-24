@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <header>
-      <div class="wrapper">
+    <div class="wrapper">
+      <header>
         <nav　class="navbar navbar-default">
           <a class="navbar-brand" href="/users">memoru</a>
           <ul class="list-inline navbar-right">
@@ -28,19 +28,19 @@
             <% end %>
           </ul>
         </nav>
+      </header>
+
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "flash flash_#{key}") %>
+      <% end %>
+
+      <div class="container">
+        <%= yield %>
       </div>
-    </header>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "flash flash_#{key}") %>
-    <% end %>
-
-    <div class="container">
-      <%= yield %>
+      <footer>
+        <p id="copyright">©2019 memoru</p>
+      </footer>
     </div>
-
-    <footer>
-      <p id="copyright">©2019 memoru</p>
-    </footer>
   </body>
 </html>
