@@ -1,33 +1,27 @@
 <%= render partial: "menu" %>
 
-<br>
+<div class="lists">
+  <ol>
+    <% @meeting_logs.each do |m| %>
+      <div class="list">
+        <table class="table-list">
+        <tr><td class="list-image"><%= image_tag m.image.url %></td></tr>
+        <tr><td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td></tr>
+        <tr><td><%= m.position %></td></tr>
+        <tr><td>
+          <% m.tags.each do |tag| %>
+            #<%= tag.name %>
+            <% end %>
+        </td></tr>
+        <tr><td>
+          <%= m.status %>
+          <%= link_to "編集", edit_meeting_log_path(m.id) %>
+          <%= link_to "削除", meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"} %>
+        </td></tr>
+        </table>
+      </div>
+    <% end %>
+  </ol>
 
-<table>
-  <% @meeting_logs.each do |m| %>
-    <tr>
-      <td><%= image_tag m.image.url %></td>
-    </tr>
-    <tr>
-      <td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td>
-    </tr>
-    <tr>
-      <td><%= m.position %></td>
-    </tr>
-    <tr>
-      <td>
-        <% m.tags.each do |tag| %>
-          #<%= tag.name %>
-          <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= m.status %>,
-        <%= link_to "編集", edit_meeting_log_path(m.id) %>
-        <%= link_to "削除", meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"} %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
-<%= paginate @meeting_logs %>
+  <%= paginate @meeting_logs %>
+</div>

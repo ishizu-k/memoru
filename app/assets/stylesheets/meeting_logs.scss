@@ -8,10 +8,8 @@
   width: 100px;
   height: 100px;
   margin: 50px 20px;
-  // line-height: 100px;
   border-radius: 50%;
   text-align: center;
-  // overflow: hidden;
   font-weight: bold;
   background-color: #fff;
 }
@@ -23,7 +21,6 @@ p.new-line {
 .box-search {
   display: inline-block;
   padding: 30px 20px;
-  // margin: auto;
   margin-left: 30px;
   width: 400px;
   color: #474a4d;
@@ -33,4 +30,29 @@ p.new-line {
 
 .meetinglog-index-menu{
   text-align: center;
+}
+
+.list {
+  display: inline-block;
+  padding: 20px 20px 30px;
+  margin: 20px;
+  height: 350px;
+  width: 250px;
+  text-align: center;
+  line-height: 25px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.lists {
+  text-align: center;
+}
+
+.table-list {
+  margin: auto;
+}
+
+td.list-image {
+  height: 200px;
 }
