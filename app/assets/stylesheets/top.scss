@@ -2,8 +2,10 @@ body {
   background-color: #89c3eb;
 }
 
-.wrapper{
-  overflow: hidden;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -14,9 +16,9 @@ header {
 }
 
 footer {
-  bottom: 0;
   height: 50px;
   width: 100%;
+  margin-top: auto;
   text-align: center;
   color: #fff;
 }
