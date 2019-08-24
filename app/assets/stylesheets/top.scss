@@ -1,0 +1,42 @@
+body {
+  background-color: #89c3eb;
+}
+
+.wrapper{
+  overflow: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  height: 50px;
+  background-color: #fff;
+}
+
+.navbar-brand {
+  margin-left: 10px;
+  color: #89c3eb;
+}
+
+.list-inline {
+  margin-right: 50px;
+}
+
+.list-inline li {
+  padding: 15px;
+}
+
+li {
+  list-style: none;
+}
+
+.flash {
+  color: white;
+  text-align: center;
+  &_alert{
+    background-color: #ef857d;
+  }
+  &_notice {
+    background-color: #82cddd;
+  }
+}

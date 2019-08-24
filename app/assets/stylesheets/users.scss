@@ -2,13 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.flash {
-  color: white;
+h1 {
+  margin: 3em;
   text-align: center;
-  &_alert{
-    background-color: #ef857d;
-  }
-  &_notice {
-    background-color: #82cddd;
-  }
+  color: #fff;
+}
+
+.box_top {
+  padding: 30px 10px;
+  margin: auto;
+  width: 600px;
+  text-align: center;
+  line-height: 25px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
 }
