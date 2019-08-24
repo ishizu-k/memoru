@@ -1,7 +1,7 @@
 <%= render partial: "menu" %>
 
 <div class="lists">
-  <ol>
+  <ul>
     <% @meeting_logs.each do |m| %>
       <div class="list">
         <table class="table-list">
@@ -21,7 +21,7 @@
         </table>
       </div>
     <% end %>
-  </ol>
+  </ul>
 
   <%= paginate @meeting_logs %>
 </div>

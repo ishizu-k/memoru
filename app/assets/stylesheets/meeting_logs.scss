@@ -56,3 +56,16 @@ p.new-line {
 td.list-image {
   height: 200px;
 }
+
+.list-name {
+  display: inline-block;
+  padding: 20px 20px 30px;
+  margin: 20px;
+  height: 300px;
+  width: 250px;
+  text-align: center;
+  line-height: 30px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
