@@ -13,7 +13,10 @@ header {
   background-color: #fff;
 }
 
-#copyright {
+footer {
+  bottom: 0;
+  height: 50px;
+  width: 100%;
   text-align: center;
   color: #fff;
 }
@@ -33,6 +36,23 @@ header {
 
 li {
   list-style: none;
+}
+
+h1, h3 {
+  margin: 3em;
+  text-align: center;
+  color: #fff;
+}
+
+.box_top {
+  padding: 30px 10px;
+  margin: auto;
+  width: 600px;
+  text-align: center;
+  line-height: 25px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .flash {
