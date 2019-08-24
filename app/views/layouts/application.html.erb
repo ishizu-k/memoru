@@ -31,16 +31,16 @@
       </div>
     </header>
 
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "flash flash_#{key}") %>
-      <% end %>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "flash flash_#{key}") %>
+    <% end %>
 
-      <div class="container">
-        <%= yield %>
-      </div>
-
-      <footer>
-      </footer>
+    <div class="container">
+      <%= yield %>
     </div>
+
+    <footer>
+      <p id="copyright">©2019 memoru</p>
+    </footer>
   </body>
 </html>
