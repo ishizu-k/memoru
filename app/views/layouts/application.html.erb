@@ -10,29 +10,37 @@
   </head>
 
   <body>
-    <header>
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to "一覧", meeting_logs_path %></li>
-          <li><%= link_to '記録する', new_meeting_log_path %></li>
-          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-          <li><%= link_to 'プロフィール編集（暫定設置）', edit_user_registration_path %></li>
-          <li><%= link_to "タグ管理", tags_path %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </header>
+    <div class="wrapper">
+      <header>
+        <nav　class="navbar navbar-default">
+          <a class="navbar-brand" href="/users">memoru</a>
+          <ul class="list-inline navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to "一覧", meeting_logs_path %></li>
+              <li><%= link_to '記録する', new_meeting_log_path %></li>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+              <li><%= link_to 'プロフィール編集（暫定設置）', edit_user_registration_path %></li>
+              <li><%= link_to "タグ管理", tags_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "flash flash_#{key}") %>
-    <% end %>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "flash flash_#{key}") %>
+      <% end %>
 
-    <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
 
-    <footer>
-    </footer>
+      <footer>
+        <p id="copyright">©2019 memoru</p>
+      </footer>
+    </div>
   </body>
 </html>

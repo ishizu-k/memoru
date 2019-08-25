@@ -1,3 +1,186 @@
 // Place all the styles related to the meeting_logs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.circle-meetinglog {
+  display: inline-block;
+  color: #474a4d;
+  width: 100px;
+  height: 100px;
+  margin: 50px 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+p.new-line {
+  margin: 28px 0;
+}
+
+.box-search {
+  display: inline-block;
+  padding: 30px 20px;
+  margin-left: 30px;
+  width: 400px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.meetinglog-index-menu{
+  text-align: center;
+}
+
+.list {
+  display: inline-block;
+  padding: 20px 20px 30px;
+  margin: 20px;
+  height: 350px;
+  width: 250px;
+  text-align: center;
+  line-height: 25px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.lists {
+  text-align: center;
+}
+
+.table-list {
+  margin: auto;
+}
+
+td.list-image {
+  height: 200px;
+}
+
+.list-learn {
+  display: inline-block;
+  padding: 20px 20px 30px;
+  margin: 20px;
+  height: 300px;
+  width: 250px;
+  text-align: center;
+  line-height: 30px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.box-create-list {
+  display: inline-block;
+  width: 600px;
+  padding: 30px 50px 30px 60px;
+  // margin-left: 50%;
+  // line-height: 30px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+table.meetinglog-form tr {
+  height: 60px;
+}
+
+table.meetinglog-form th {
+  width: 100px;
+  text-align: left;
+}
+
+table.meetinglog-form td {
+  width: 350px;
+  text-align: left;
+}
+
+h4 {
+  margin: 40px 0 20px;
+  color: #89c3eb;
+}
+
+
+table.wh {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.wh tr {
+  border: solid 1px #89c3eb;
+}
+
+table.wh tr:last-child th {
+  border-bottom: solid 1px #89c3eb;
+}
+
+table.wh th {
+  // position: relative;
+  text-align: left;
+  width: 25%;
+  background-color: #89c3eb;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: solid 2px #fff;
+}
+
+table.wh td {
+  text-align: left;
+  width: 75%;
+  padding-left: 30px;
+  background-color: #fff;
+}
+
+.box-profile {
+  text-align: center;
+}
+
+table.profile {
+  display: inline-block;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.profile tr {
+  border: solid 2px #89c3eb;
+}
+
+table.profile th {
+  width: 100px;
+  border: solid 1px #89c3eb;
+  text-align: center;
+  color: #fff;
+  background-color: #89c3eb;
+}
+
+
+.profile2 {
+    position: relative;
+    margin: 3em 0;
+    padding: 0.5em 1em;
+    border: solid 2px #89c3eb;
+}
+
+.profile2 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -32px;
+    left: -2px;
+    padding: 0 20px;
+    height: 30px;
+    background: #89c3eb;
+    color: #fff;
+    font-weight: bold;
+}
+
+.profile2 p {
+    margin: 0;
+    padding: 0;
+}
+
+.comment {
+  text-align: center;
+}

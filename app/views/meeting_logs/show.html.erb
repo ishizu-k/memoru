@@ -1,51 +1,116 @@
-<h3>対象の詳細画面</h3>
+<!-- 対象の詳細画面 -->
 
-<%= image_tag @meeting_log.image.url %>
-<table>
-  <tr>
-    <td>状態：<%= @meeting_log.status %></td>
-  </tr>
-  <tr>
-    <td>名前：<%= @meeting_log.name %>さん</td>
-  </tr>
-  <tr>
-    <td>肩書き：<%= @meeting_log.position %></td>
-  </tr>
-  <tr>
-    <td>
-      タグ：
-      <% @meeting_log.tags.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>年齢：<%= @meeting_log.age %></td>
-  </tr>
-  <tr>
-    <td>血液型：<%= @meeting_log.blood_i18n %></td>
-  </tr>
-  <tr>
-    <td>誕生日：<%= @meeting_log.birth %></td>
-  </tr>
-  <tr>
-    <td>出身：<%= @meeting_log.hometown %></td>
-  </tr>
-  <tr>
-    <td>外見的特徴：<%= @meeting_log.look %></td>
-  </tr>
-  <tr>
-    <td>備考欄：<%= @meeting_log.other %></td>
-  </tr>
-</table>
+<br>
 
-<p>追加エピソード</p>
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, meeting_log: @meeting_log } %>
-</div>
-<p>入力用フォーム</p>
-<%= render partial: 'comments/form', locals: { comment: @comment, meeting_log: @meeting_log } %>
+<div class="box_mypage">
+  <table class="mypage-table">
+    <tr>
+      <td>
+        <table class="mypage-intable1">
+          <tr><td><%= image_tag @meeting_log.image.url %></td></tr>
+          <tr><td>状態： <%= @meeting_log.status %> です！</td></tr>
+        </table>
+      </td>
+      <td>
+        <table class="mypage-intable2">
+          <tr><th>名前</th></tr>
+          <tr><td><%= @meeting_log.name %>さん</td></tr>
+          <tr><th>肩書き</th></tr>
+          <tr><td><%= @meeting_log.position %></td></tr>
+          <tr><th>タグ</th></tr>
+          <tr><td>
+            <% @meeting_log.tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
+          </td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 
-<%= link_to '編集', edit_meeting_log_path(@meeting_log) %> |
-<%= link_to '戻る', meeting_logs_path %>
+  <table class="wh">
+    <tr>
+      <th>When</th>
+      <td><%= @meeting_log.day %></td>
+    </tr>
+    <tr>
+      <th>Where</th>
+      <td><%= @meeting_log.place %></td>
+    </tr>
+    <tr>
+      <th>What</th>
+      <td><%= @meeting_log.memo %></td>
+    </tr>
+    <tr>
+      <th>How</th>
+      <td><%= @meeting_log.how %></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <div class="box-profile">
+    <table class="profile">
+      <tr>
+        <th>年齢</th>
+      </tr>
+      <tr>
+        <td><%= @meeting_log.age %></td>
+      </tr>
+    </table>
+
+    <table class="profile">
+      <tr>
+        <th>誕生日</th>
+      </tr>
+      <tr>
+        <td><%= @meeting_log.birth %></td>
+      </tr>
+    </table>
+
+    <table class="profile">
+      <tr>
+        <th>血液型</th>
+      </tr>
+      <tr>
+        <td><%= @meeting_log.blood_i18n %></td>
+      </tr>
+    </table>
+
+    <table class="profile">
+      <tr>
+        <th>出身</th>
+      </tr>
+      <tr>
+        <td><%= @meeting_log.hometown %></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="profile2">
+      <span class="box-title">外見的特徴</span>
+      <p><%= @meeting_log.look %></p>
+  </div>
+
+  <div class="profile2">
+      <span class="box-title">備考欄</span>
+      <p><%= @meeting_log.other %></p>
+  </div>
+
+  <br>
+
+  <hr>
+
+  <br>
+
+  <div class="comment">
+    <h4>追加エピソード</h4>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, meeting_log: @meeting_log } %>
+    </div>
+    <p>入力用フォーム</p>
+    <%= render partial: 'comments/form', locals: { comment: @comment, meeting_log: @meeting_log } %>
+  </div>
+
 </div>

@@ -1,24 +1,26 @@
 <%= render partial: "menu" %>
 
-<br>
 
-<table>
-  <% @meeting_logs.each do |m| %>
-    <tr>
-      <td><%= image_tag m.image.url %></td>
-    </tr>
-    <tr>
-      <td>
-        <details>
-          <summary>名前を表示する</summary>
-          <%= link_to (m.name), meeting_log_path(m.id) %> さん
-        </details>
-      </td>
-    </tr>
-    <tr>
-      <td><%= m.position %></td>
-    </tr>
-  <% end %>
-</table>
 
-<%= paginate @meeting_logs %>
+
+<div class="lists">
+  <ul>
+    <% @meeting_logs.each do |m| %>
+      <div class="list-learn">
+        <table class="table-list">
+          <tr><td><%= image_tag m.image.url %></td></tr>
+          <tr><td>
+            <details>
+              <summary>名前を表示する</summary>
+              <%= link_to (m.name), meeting_log_path(m.id) %> さん<br>
+              <%= m.position %>
+            </details>
+          </td></tr>
+          <tr><td></td></tr>
+        </table>
+      </div>
+    <% end %>
+  </ul>
+
+  <%= paginate @meeting_logs %>
+</div>
