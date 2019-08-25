@@ -1,3 +1,14 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.box-tag {
+  padding: 30px 50px;
+  margin: auto;
+  width: 400px;
+  text-align: center;
+  line-height: 25px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
