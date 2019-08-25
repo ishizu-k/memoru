@@ -6,6 +6,7 @@
         <td><%= link_to "編集", edit_meeting_log_comment_path(comment.meeting_log_id, comment.id), remote: true %></td>
         <td><%= link_to "削除", meeting_log_comment_path(comment.meeting_log_id, comment.id), method: :delete, remote: true, data: {confirm: "対象の記録を削除しますか？"} %></td>
     </table>
+    <hr>
   <% end %>
 <% end %>
 
