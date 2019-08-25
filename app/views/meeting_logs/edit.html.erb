@@ -1,5 +1,10 @@
-<h3>対象の編集画面</h3>
-<%= form_with(model: @meeting_log, local: true) do |f| %>
-  <%= render partial: "form", locals: {f: f} %>
-  <%= f.submit "編集する" %>
-<% end %>
+<h3>編集する</h3>
+
+<div class="lists">
+  <div class="box-create-list">
+    <%= form_with(model: @meeting_log, local: true) do |f| %>
+      <%= render partial: "form", locals: {f: f} %>
+      <%= f.submit "編集する" %>
+    <% end %>
+  </div>
+</div>
