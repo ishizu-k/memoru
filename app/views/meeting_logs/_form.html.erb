@@ -7,7 +7,7 @@
     </ul>
   </div>
 <% end %>
-<table>
+<table class="meetinglog-form">
   <tr>
     <th><%= f.label :name, "名前" %></th>
     <td><%= f.text_field :name %> さん</td>
@@ -16,6 +16,13 @@
     <th><%= f.label :position, "肩書き" %></th>
     <td><%= f.text_field :position %></td>
   </tr>
+</table>
+
+<hr>
+
+<h4>出会いについて</h4>
+
+<table class="meetinglog-form">
   <tr>
     <th><%= f.label :day, "when?" %></th>
     <td><%= raw sprintf(f.date_select(:day, start_year: (Time.now.year - 1), end_year: (Time.now.year), use_month_numbers: true, date_separator: '%s'), '年 ', '月 ') + '日' %></td>
@@ -46,6 +53,13 @@
       <% end %>
     </td>
   </tr>
+</table>
+
+<hr>
+
+<h4>もう少し詳しく</h4>
+
+<table class="meetinglog-form">
   <tr>
     <th><%= f.label :age, "年齢" %></th>
     <td><%= f.number_field :age, min: 0, max: 120 %> 歳</td>
@@ -72,3 +86,5 @@
   </tr>
   <%= f.hidden_field :status %>
 </table>
+
+<br>

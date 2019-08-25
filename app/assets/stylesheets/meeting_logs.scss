@@ -69,3 +69,33 @@ td.list-image {
   background-color: #fff;
   border-radius: 10px;
 }
+
+.box-create-list {
+  display: inline-block;
+  width: 600px;
+  padding: 30px 50px 30px 60px;
+  // margin-left: 50%;
+  // line-height: 30px;
+  color: #474a4d;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+table.meetinglog-form tr {
+  height: 60px;
+}
+
+table.meetinglog-form th {
+  width: 100px;
+  text-align: left;
+}
+
+table.meetinglog-form td {
+  width: 350px;
+  text-align: left;
+}
+
+h4 {
+  margin: 40px 0 20px;
+  color: #89c3eb;
+}
