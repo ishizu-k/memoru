@@ -21,7 +21,7 @@ class MeetingLogsController < ApplicationController
   end
 
   def create
-    @meeting_log = MeetingLog.new(meeting_log_params)
+    @meeting_log = current_user.meeting_logs.build(meeting_log_params)
     if @meeting_log.save
       redirect_to meeting_logs_path
       flash[:notice] = "対象の記録を作成しました"
