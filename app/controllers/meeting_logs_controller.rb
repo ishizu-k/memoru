@@ -1,6 +1,7 @@
 class MeetingLogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_meeting_log, only: [:edit, :update, :show, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :show, :destroy]
 
   def index
     @tags = Tag.all
@@ -90,5 +91,12 @@ class MeetingLogsController < ApplicationController
 
   def set_meeting_log
     @meeting_log = MeetingLog.find(params[:id])
+  end
+
+  def ensure_correct_user
+    if current_user.id != @meeting_log.user_id
+      flash[:alert] = '操作権限がありません'
+      redirect_to meeting_logs_path
+    end
   end
 end
