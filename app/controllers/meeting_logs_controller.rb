@@ -1,19 +1,20 @@
 class MeetingLogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_meeting_log, only: [:edit, :update, :show, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :show, :destroy]
 
   def index
     @tags = Tag.all
     if params[:meeting_log].nil?
-      @meeting_logs = MeetingLog.page(params[:page])
+      @meeting_logs = current_user.meeting_logs.order(created_at: :desc).page(params[:page])
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
-      @meeting_logs = MeetingLog.search(params[:meeting_log][:name]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.search(params[:meeting_log][:name]).page(params[:page])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
-      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
     else
       redirect_to meeting_logs_path
     end
-    @meeting_logs = MeetingLog.all.order(:status).page(params[:page]) if params[:sort_status]
+    @meeting_logs = current_user.meeting_logs.all.order(:status).page(params[:page]) if params[:sort_status]
   end
 
   def new
@@ -21,7 +22,7 @@ class MeetingLogsController < ApplicationController
   end
 
   def create
-    @meeting_log = MeetingLog.new(meeting_log_params)
+    @meeting_log = current_user.meeting_logs.build(meeting_log_params)
     if @meeting_log.save
       redirect_to meeting_logs_path
       flash[:notice] = "対象の記録を作成しました"
@@ -56,29 +57,29 @@ class MeetingLogsController < ApplicationController
   def name_only
     @tags = Tag.all
     if params[:meeting_log].nil?
-      @meeting_logs = MeetingLog.page(params[:page])
+      @meeting_logs = current_user.meeting_logs.page(params[:page])
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
-      @meeting_logs = MeetingLog.search(params[:meeting_log][:name]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.search(params[:meeting_log][:name]).page(params[:page])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
-      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
     else
       redirect_to meeting_logs_path
     end
-    @meeting_logs = MeetingLog.all.order(:status).page(params[:page]) if params[:sort_status]
+    @meeting_logs = current_user.meeting_logs.all.order(:status).page(params[:page]) if params[:sort_status]
   end
 
   def image_only
     @tags = Tag.all
     if params[:meeting_log].nil?
-      @meeting_logs = MeetingLog.page(params[:page])
+      @meeting_logs = current_user.meeting_logs.page(params[:page])
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
-      @meeting_logs = MeetingLog.search(params[:meeting_log][:name]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.search(params[:meeting_log][:name]).page(params[:page])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
-      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
     else
       redirect_to meeting_logs_path
     end
-    @meeting_logs = MeetingLog.all.order(:status).page(params[:page]) if params[:sort_status]
+    @meeting_logs = current_user.meeting_logs.all.order(:status).page(params[:page]) if params[:sort_status]
   end
 
   private
@@ -90,5 +91,12 @@ class MeetingLogsController < ApplicationController
 
   def set_meeting_log
     @meeting_log = MeetingLog.find(params[:id])
+  end
+
+  def ensure_correct_user
+    if current_user.id != @meeting_log.user_id
+      flash[:alert] = '操作権限がありません'
+      redirect_to meeting_logs_path
+    end
   end
 end

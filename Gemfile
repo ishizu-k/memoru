@@ -84,3 +84,6 @@ gem 'rails_12factor', group: :production
 
 # enum
 gem 'enum_help'
+
+# seed data
+gem 'faker'
