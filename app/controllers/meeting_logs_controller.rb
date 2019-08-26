@@ -5,15 +5,15 @@ class MeetingLogsController < ApplicationController
   def index
     @tags = Tag.all
     if params[:meeting_log].nil?
-      @meeting_logs = MeetingLog.order(created_at: :desc).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.order(created_at: :desc).page(params[:page])
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
-      @meeting_logs = MeetingLog.search(params[:meeting_log][:name]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.search(params[:meeting_log][:name]).page(params[:page])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
-      @meeting_logs = MeetingLog.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
+      @meeting_logs = current_user.meeting_logs.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
     else
       redirect_to meeting_logs_path
     end
-    @meeting_logs = MeetingLog.all.order(:status).page(params[:page]) if params[:sort_status]
+    @meeting_logs = current_user.meeting_logs.all.order(:status).page(params[:page]) if params[:sort_status]
   end
 
   def new
