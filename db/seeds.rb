@@ -7,39 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 1.times do |n|
-  user = User.new(
-    name: "テストユーザー",
+  user = User.create!(
+    name: "たなか",
     email: "test@example.com",
     password: "111111",
     password_confirmation: "111111",
     image: ""
   )
-  user.save
-end
-
-20.times do |m|
-  name = Faker::Dessert.variety
-  place = Faker::Books::Lovecraft.location
-  memo = Faker::Books::Lovecraft.fhtagn
-  image = Faker::Avatar.image
-  position = Faker::Military.army_rank
-  hometown = Faker::Space.planet
-  meeting_logs = MeetingLog.new(
-    name: name,
-    day: "2019-07-28",
-    place: place,
-    memo: memo,
-    how: "peacefully",
-    image: image,
-    position: position,
-    status: "記憶中",
-    age: "20",
-    look: "",
-    birth: "",
-    blood: "",
-    hometown: hometown,
-    other: "",
-    # user_id: "1"
-  )
-  meeting_logs.save
+  20.times do |m|
+    name = Faker::Dessert.variety
+    place = Faker::Books::Lovecraft.location
+    memo = Faker::Books::Lovecraft.fhtagn
+    position = Faker::Military.army_rank
+    hometown = Faker::Space.planet
+    user.meeting_logs.build(
+      name: name +"#{m}",
+      day: "2019-07-28",
+      place: place,
+      memo: memo,
+      how: "peacefully",
+      image: "",
+      position: position,
+      status: "記憶中",
+      age: "20",
+      look: "眼鏡",
+      birth: "1999-07-7",
+      blood: "",
+      hometown: hometown,
+      other: "特にない",
+    )
+    end
+  user.save!
 end
