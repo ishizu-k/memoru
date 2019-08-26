@@ -8,7 +8,7 @@
       <td>
         <table class="mypage-intable1">
           <tr><td><%= image_tag @meeting_log.image.url %></td></tr>
-          <tr><td>状態： <%= @meeting_log.status_i18n %> です！</td></tr>
+          <tr><td>状況： <%= link_to @meeting_log.status_i18n, meeting_log_toggle_status_path(@meeting_log), method: :patch %> です！</td></tr>
         </table>
       </td>
       <td>

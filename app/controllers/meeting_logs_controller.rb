@@ -1,6 +1,6 @@
 class MeetingLogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_meeting_log, only: [:edit, :update, :show, :destroy]
+  before_action :set_meeting_log, only: [:edit, :update, :show, :destroy, :toggle_status]
   before_action :ensure_correct_user, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -82,6 +82,11 @@ class MeetingLogsController < ApplicationController
     @meeting_logs = current_user.meeting_logs.all.order(:status).page(params[:page]) if params[:sort_status]
   end
 
+  def toggle_status
+    @meeting_log.toggle_status!
+    redirect_to @meeting_log, notice: '記憶状況を更新しました'
+  end
+
   private
 
   def meeting_log_params
@@ -90,7 +95,7 @@ class MeetingLogsController < ApplicationController
   end
 
   def set_meeting_log
-    @meeting_log = MeetingLog.find(params[:id])
+    @meeting_log = MeetingLog.find(params[:id] || params[:meeting_log_id])
   end
 
   def ensure_correct_user
