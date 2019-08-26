@@ -25,6 +25,14 @@ class MeetingLog < ApplicationRecord
     attributes tag: ["tags.name"]
   end
 
+  def toggle_status!
+    if memorizing?
+      memorized!
+    else
+      memorizing!
+    end
+  end
+
   private
 
   def day_cannot_future
