@@ -212,3 +212,6 @@ ja:
         O_type: O型
         AB_type: AB型
         unknown: 不明
+      status:
+        memorizing: 記憶中
+        memorized: 記憶完了
