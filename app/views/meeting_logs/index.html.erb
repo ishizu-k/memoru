@@ -14,7 +14,7 @@
             <% end %>
         </td></tr>
         <tr><td>
-          <%= m.status %>
+          <%= m.status_i18n %>
           <%= link_to "編集", edit_meeting_log_path(m.id) %>
           <%= link_to "削除", meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"} %>
         </td></tr>
