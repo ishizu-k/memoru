@@ -41,6 +41,12 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :development do
@@ -84,6 +90,3 @@ gem 'rails_12factor', group: :production
 
 # enum
 gem 'enum_help'
-
-# seed data
-gem 'faker'
