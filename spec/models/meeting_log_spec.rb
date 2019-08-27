@@ -66,4 +66,19 @@ RSpec.describe MeetingLog, type: :model do
     meeting_log = FactoryBot.build(:meeting_log, :skip_validate, status: nil)
     expect(meeting_log).not_to be_valid
   end
+
+  it "lookが文字数301以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, look: "a" * 301)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "hometownが文字数101以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, hometown: "a" * 101)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "otherが文字数501以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, other: "a" * 501)
+    expect(meeting_log).not_to be_valid
+  end
 end
