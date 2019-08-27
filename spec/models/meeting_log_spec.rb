@@ -31,4 +31,34 @@ RSpec.describe MeetingLog, type: :model do
     meeting_log = FactoryBot.build(:meeting_log, :skip_validate, place: "a" * 151)
     expect(meeting_log).not_to be_valid
   end
+
+  it "memoが空の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, memo: nil)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "memoが文字数151以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, memo: "a" * 151)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "howが空の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, how: nil)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "howが文字数151以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, how: "a" * 151)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "positionが空の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, position: nil)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "positionが文字数151以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, position: "a" * 151)
+    expect(meeting_log).not_to be_valid
+  end
 end
