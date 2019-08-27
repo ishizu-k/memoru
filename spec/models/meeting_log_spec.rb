@@ -21,4 +21,14 @@ RSpec.describe MeetingLog, type: :model do
     meeting_log = FactoryBot.build(:meeting_log, :skip_validate, day: nil)
     expect(meeting_log).not_to be_valid
   end
+
+  it "placeが空の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, place: nil)
+    expect(meeting_log).not_to be_valid
+  end
+
+  it "placeが文字数151以上の場合、バリデーションは通らない" do
+    meeting_log = FactoryBot.build(:meeting_log, :skip_validate, place: "a" * 151)
+    expect(meeting_log).not_to be_valid
+  end
 end
