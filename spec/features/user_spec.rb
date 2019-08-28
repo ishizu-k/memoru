@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature "ユーザーの作成・削除とログイン・ログアウト", type: :feature do
     background do
       user = FactoryBot.create(:user)
-      user2 = FactoryBot.create(:second_user)
     end
 
   scenario "ユーザーの新規作成と削除" do
