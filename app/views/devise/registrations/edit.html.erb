@@ -36,12 +36,12 @@
     </div>
 
     <div class="actions">
-      <%= f.submit t('action.edit') %>
+      <%= f.submit t('action.edit'), class: "btn outline btn-primary" %>
     </div>
   <% end %>
 </div>
 
 <h3>退会する</h3>
 <div class="box_user">
-  <%= button_to t('action.delete_account'), registration_path(resource_name), data: { confirm: "アカウントを削除しますか？" }, method: :delete %>
+  <%= button_to t('action.delete_account'), registration_path(resource_name), data: { confirm: "アカウントを削除しますか？" }, method: :delete, class: "btn outline btn-primary" %>
 </div>

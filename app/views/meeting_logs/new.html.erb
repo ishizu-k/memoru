@@ -4,7 +4,7 @@
   <div class="box-create-list">
   <%= form_with(model: @meeting_log, local: true) do |f| %>
     <%= render partial: "form", locals: {f: f } %>
-    <%= f.submit t('action.record') %>
+    <%= f.submit t('action.record'), class: "btn outline btn-primary" %>
   <% end %>
   </div>
 </div>
