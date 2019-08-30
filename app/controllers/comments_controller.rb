@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     @meeting_log = MeetingLog.find(params[:meeting_log_id])
     @comment = @meeting_log.comments.build(comment_params)
@@ -35,7 +35,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.destroy
       render :index
-      flash[:notice] = "削除しました"
     end
   end
 
