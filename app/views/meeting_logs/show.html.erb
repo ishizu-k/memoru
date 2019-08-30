@@ -90,12 +90,12 @@
 
   <div class="profile2">
       <span class="box-title"><%= t('meeting_log.look') %></span>
-      <p><%= @meeting_log.look %></p>
+      <p><%= simple_format(@meeting_log.look) %></p>
   </div>
 
   <div class="profile2">
       <span class="box-title"><%= t('meeting_log.other') %></span>
-      <p><%= @meeting_log.other %></p>
+      <p><%= simple_format(@meeting_log.other) %></p>
   </div>
 
   <br>
