@@ -215,3 +215,35 @@ ja:
       status:
         memorizing: 記憶中
         memorized: 記憶完了
+  user:
+    name: ユーザー名
+    image: プロフィール画像
+    email: Eメールアドレス
+    password: パスワード
+    password_confirmation: パスワード（確認）
+    current_password: 現在のパスワード
+    show: マイページ
+  meeting_log:
+    name: 名前
+    position: 肩書き
+    image: イメージ画像
+    tag: タグ
+    age: 年齢
+    look: 外見的特徴
+    birth: 誕生日
+    blood: 血液型
+    hometown: 出身
+    other: 備考欄
+  action:
+    list: 一覧
+    edit: 編集
+    delete: 削除
+    add: 追加
+    create: 作成
+    record: 記録する
+    delete_account: アカウント削除
+    create_account: アカウント作成
+    login: ログイン
+    logout: ログアウト
+    search: 検索
+    tag: タグの管理

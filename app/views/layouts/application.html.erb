@@ -16,15 +16,14 @@
           <a class="navbar-brand" href="/users">memoru</a>
           <ul class="list-inline navbar-right">
             <% if user_signed_in? %>
-              <li><%= link_to "一覧", meeting_logs_path %></li>
-              <li><%= link_to '記録する', new_meeting_log_path %></li>
+              <li><%= link_to t('action.list'), meeting_logs_path %></li>
+              <li><%= link_to t('action.record'), new_meeting_log_path %></li>
               <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-              <li><%= link_to 'プロフィール編集（暫定設置）', edit_user_registration_path %></li>
-              <li><%= link_to "タグ管理", tags_path %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to t('action.tag'), tags_path %></li>
+              <li><%= link_to t('action.logout'), destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
-              <li><%= link_to "ログイン", new_user_session_path %></li>
+              <li><%= link_to t('action.create_account'), new_user_registration_path %></li>
+              <li><%= link_to t('action.login'), new_user_session_path %></li>
             <% end %>
           </ul>
         </nav>

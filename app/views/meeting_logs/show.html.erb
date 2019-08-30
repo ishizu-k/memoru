@@ -13,11 +13,11 @@
       </td>
       <td>
         <table class="mypage-intable2">
-          <tr><th>名前</th></tr>
+          <tr><th><%= t('meeting_log.name') %></th></tr>
           <tr><td><%= @meeting_log.name %>さん</td></tr>
-          <tr><th>肩書き</th></tr>
+          <tr><th><%= t('meeting_log.position') %></th></tr>
           <tr><td><%= @meeting_log.position %></td></tr>
-          <tr><th>タグ</th></tr>
+          <tr><th><%= t('meeting_log.tag') %></th></tr>
           <tr><td>
             <% @meeting_log.tags.each do |tag| %>
               <%= tag.name %>
@@ -52,7 +52,7 @@
   <div class="box-profile">
     <table class="profile">
       <tr>
-        <th>年齢</th>
+        <th><%= t('meeting_log.age') %></th>
       </tr>
       <tr>
         <td><%= @meeting_log.age %></td>
@@ -61,7 +61,7 @@
 
     <table class="profile">
       <tr>
-        <th>誕生日</th>
+        <th><%= t('meeting_log.birth') %></th>
       </tr>
       <tr>
         <td><%= @meeting_log.birth %></td>
@@ -70,7 +70,7 @@
 
     <table class="profile">
       <tr>
-        <th>血液型</th>
+        <th><%= t('meeting_log.blood') %></th>
       </tr>
       <tr>
         <td><%= @meeting_log.blood_i18n %></td>
@@ -79,7 +79,7 @@
 
     <table class="profile">
       <tr>
-        <th>出身</th>
+        <th><%= t('meeting_log.hometown') %></th>
       </tr>
       <tr>
         <td><%= @meeting_log.hometown %></td>
@@ -89,12 +89,12 @@
 
 
   <div class="profile2">
-      <span class="box-title">外見的特徴</span>
+      <span class="box-title"><%= t('meeting_log.look') %></span>
       <p><%= @meeting_log.look %></p>
   </div>
 
   <div class="profile2">
-      <span class="box-title">備考欄</span>
+      <span class="box-title"><%= t('meeting_log.other') %></span>
       <p><%= @meeting_log.other %></p>
   </div>
 

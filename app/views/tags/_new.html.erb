@@ -9,8 +9,8 @@
     </div>
   <% end %>
 
-  <%= f.label :name, "タグ名" %>
+  <%= f.label :name, t('meeting_log.tag') %>
   <%= f.text_field :name %>
 
-  <%= f.submit "作成" %>
+  <%= f.submit t('action.create') %>
 <% end %>

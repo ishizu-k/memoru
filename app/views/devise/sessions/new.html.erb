@@ -1,14 +1,14 @@
-<h3>ログイン</h3>
+<h3><%= t('action.login') %></h3>
 
 <div class="box_user">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email, "Eメールアドレス" %><br />
+      <%= f.label :email, t('user.email') %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, "パスワード" %><br />
+      <%= f.label :password, t('user.password') %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
 
@@ -20,7 +20,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "ログイン" %>
+      <%= f.submit t('action.login') %>
     </div>
   <% end %>
 </div>

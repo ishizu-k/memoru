@@ -1,10 +1,10 @@
-<h3>記録する</h3>
+<h3><%= t('action.record') %></h3>
 
 <div class="lists">
   <div class="box-create-list">
   <%= form_with(model: @meeting_log, local: true) do |f| %>
     <%= render partial: "form", locals: {f: f } %>
-    <%= f.submit "記録する" %>
+    <%= f.submit t('action.record') %>
   <% end %>
   </div>
 </div>

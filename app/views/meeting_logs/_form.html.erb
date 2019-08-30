@@ -9,11 +9,11 @@
 <% end %>
 <table class="meetinglog-form">
   <tr>
-    <th><%= f.label :name, "名前" %></th>
+    <th><%= f.label :name, t('meeting_log.name') %></th>
     <td><%= f.text_field :name %> さん</td>
   </tr>
   <tr>
-    <th><%= f.label :position, "肩書き" %></th>
+    <th><%= f.label :position, t('meeting_log.position') %></th>
     <td><%= f.text_field :position %></td>
   </tr>
 </table>
@@ -40,12 +40,12 @@
     <td><%= f.text_field :how %></td>
   </tr>
   <tr>
-    <th><%= f.label :image, "イメージ画像" %></th>
+    <th><%= f.label :image, t('meeting_log.image') %></th>
     <td><%= f.file_field :image %></td>
     <%= f.hidden_field :image_cache %>
   </tr>
   <tr>
-    <th>タグ</th>
+    <th><%= t('meeting_log.tag') %></th>
 　  <td>
       <% Tag.all.each do |tag| %>
         <%= f.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false }, tag[:id] %>
@@ -61,27 +61,27 @@
 
 <table class="meetinglog-form">
   <tr>
-    <th><%= f.label :age, "年齢" %></th>
+    <th><%= f.label :age, t('meeting_log.age') %></th>
     <td><%= f.number_field :age, min: 0, max: 120 %> 歳</td>
   </tr>
   <tr>
-    <th><%= f.label :look, "外見的特徴" %></th>
+    <th><%= f.label :look, t('meeting_log.look') %></th>
     <td><%= f.text_area :look %></td>
   </tr>
   <tr>
-    <th><%= f.label :birth, "誕生日" %></th>
+    <th><%= f.label :birth, t('meeting_log.birth') %></th>
     <td><%= raw sprintf(f.date_select(:birth, start_year: 1900, end_year:(Time.now.year), include_blank: true, use_month_numbers: true, date_separator: '%s'), '年 ', '月 ') + '日' %></td>
   </tr>
   <tr>
-    <th><%= f.label :blood, "血液型" %></th>
+    <th><%= f.label :blood, t('meeting_log.blood') %></th>
     <td><%= f.select :blood, MeetingLog.bloods_i18n.keys.map {|k| [MeetingLog.bloods_i18n[k], k]} %></td>
   </tr>
   <tr>
-    <th><%= f.label :hometown, "出身" %></th>
+    <th><%= f.label :hometown, t('meeting_log.hometown') %></th>
     <td><%= f.text_field :hometown %></td>
   </tr>
   <tr>
-    <th><%= f.label :other, "備考欄" %></th>
+    <th><%= f.label :other, t('meeting_log.other') %></th>
     <td><%= f.text_area :other %></td>
   </tr>
   <%= f.hidden_field :status %>
