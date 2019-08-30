@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "対象の管理機能", type: :feature do
     background do
       # 対象の作成
-      @meeting_log1 = FactoryBot.create(:meeting_log)
+      @meeting_log1 = FactoryBot.create(:meeting_log, :skip_validate)
       @meetinglog1_id = @meeting_log1.id
       @meeting_log2 = FactoryBot.create(:second_meeting_log)
       # タグの作成
