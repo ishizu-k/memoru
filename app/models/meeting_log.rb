@@ -36,7 +36,7 @@ class MeetingLog < ApplicationRecord
   private
 
   def day_cannot_future
-    if day.present? && day.future?
+    if day.present? && day > Date.today
       errors.add(:day, " 未来の日付は入力できません")
     end
   end
