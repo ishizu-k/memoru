@@ -24,7 +24,7 @@
         <%= f.select :tag_id, @tags.pluck(:name), prompt: "タグから検索" %>　
         <%= f.text_field :name, placeholder: " 対象の名前から検索" %>
         <%= f.hidden_field :search, value: 'true' %>　
-        <%= f.submit t('action.search') %>
+        <%= f.submit t('action.search'), class: "btn outline btn-primary" %>
       <% end %>
     </div>
   </div>
