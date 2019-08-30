@@ -85,24 +85,29 @@
         <td><%= @meeting_log.hometown %></td>
       </tr>
     </table>
-  </div>
 
+    <table class="profile-long">
+      <tr>
+        <th><%= t('meeting_log.look') %></th>
+      </tr>
+      <tr>
+        <td><%= simple_format(@meeting_log.look) %></td>
+      </tr>
+    </table>
 
-  <div class="profile2">
-      <span class="box-title"><%= t('meeting_log.look') %></span>
-      <p><%= simple_format(@meeting_log.look) %></p>
-  </div>
-
-  <div class="profile2">
-      <span class="box-title"><%= t('meeting_log.other') %></span>
-      <p><%= simple_format(@meeting_log.other) %></p>
+    <table class="profile-long">
+      <tr>
+        <th><%= t('meeting_log.other') %></th>
+      </tr>
+      <tr>
+        <td><%= simple_format(@meeting_log.other) %></td>
+      </tr>
+    </table>
   </div>
 
   <br>
 
   <hr>
-
-  <br>
 
   <div class="comment">
     <h4>追加エピソード</h4>

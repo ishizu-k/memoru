@@ -115,7 +115,6 @@ table.wh tr:last-child th {
 }
 
 table.wh th {
-  // position: relative;
   text-align: left;
   width: 25%;
   background-color: #89c3eb;
@@ -156,29 +155,28 @@ table.profile th {
   background-color: #89c3eb;
 }
 
-
-.profile2 {
-    position: relative;
-    margin: 3em 0;
-    padding: 0.5em 1em;
-    border: solid 2px #89c3eb;
+table.profile-long {
+  width: 100%;
+  margin: 15px 0px 10px 0px;
+  // border-collapse: collapse;
 }
 
-.profile2 .box-title {
-    position: absolute;
-    display: inline-block;
-    top: -32px;
-    left: -2px;
-    padding: 0 20px;
-    height: 30px;
-    background: #89c3eb;
-    color: #fff;
-    font-weight: bold;
+table.profile-long tr {
+  border: solid 1px #89c3eb;
 }
 
-.profile2 p {
-    margin: 0;
-    padding: 0;
+table.profile-long th {
+  text-align: center;
+  background-color: #89c3eb;
+  color: white;
+  border-bottom: solid 1px #89c3eb;
+}
+
+table.profile-long td {
+  text-align: left;
+  padding-left: 10px;
+  line-height: 30px;
+  background-color: #fff;
 }
 
 .comment {
