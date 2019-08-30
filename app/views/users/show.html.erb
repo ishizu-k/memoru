@@ -1,4 +1,4 @@
-<h3>マイページ</h3>
+<h3><%= t('user.show') %></h3>
 
 <div class="box_mypage">
   <table class="mypage-table">
@@ -11,9 +11,9 @@
       </td>
       <td>
         <table class="mypage-intable2">
-          <tr><th><%= "ユーザー名" %></th></tr>
+          <tr><th><%= t('user.name') %></th></tr>
           <tr><td><%= @user.name %></td></tr>
-          <tr><th><%= "Eメールアドレス" %></th></tr>
+          <tr><th><%= t('user.email') %></th></tr>
           <tr><td><%= @user.email %></td></tr>
         </table>
       </td>
