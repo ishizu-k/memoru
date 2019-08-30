@@ -20,11 +20,11 @@
       how: "peacefully",
       image: "",
       position: position,
-      status: "記憶中",
+      status: "memorizing",
       age: "20",
       look: "眼鏡",
       birth: "1999-07-7",
-      blood: "",
+      blood: "unknown",
       hometown: hometown,
       other: "特にない",
     )
@@ -32,7 +32,7 @@
   user.save!
 end
 
-10.times do |t|
+5.times do |t|
   tag = Tag.new(name: "タグ#{t}")
   tag.save!
 end
