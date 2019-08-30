@@ -1,10 +1,19 @@
-<% comments.each do |comment| %>
+<% comments.each.with_index(1) do |comment, i| %>
   <% if comment.id.present? %>
-    <table>
+    <table class="comment-table">
       <tr>
-        <td id="comment-content"><%= comment.content %>　</td>
-        <td><%= link_to t('action.edit'), edit_meeting_log_comment_path(comment.meeting_log_id, comment.id), remote: true %>　</td>
-        <td><%= link_to t('action.delete'), meeting_log_comment_path(comment.meeting_log_id, comment.id), method: :delete, remote: true, data: {confirm: "対象の記録を削除しますか？"} %></td>
+        <th>その<%= "#{i}" %></th>
+      </tr>
+      <tr>
+        <td class="comment-content"><%= simple_format(comment.content) %></td>
+      </tr>
+      <tr>
+        <td class="comment-command">
+          <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>（No.<%= comment.id %>）
+          <%= link_to t('action.edit'), edit_meeting_log_comment_path(comment.meeting_log_id, comment.id), remote: true %>
+          <%= link_to t('action.delete'), meeting_log_comment_path(comment.meeting_log_id, comment.id), method: :delete, remote: true, data: {confirm: "対象の記録を削除しますか？"} %>
+        </td>
+      </tr>
     </table>
     <hr>
   <% end %>

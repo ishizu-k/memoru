@@ -6,22 +6,22 @@
 
     <div class="field">
       <%= f.label :name, t('user.name') %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", size: 30 %>
     </div>
 
     <div class="field">
       <%= f.label :email, t('user.email') %><br />
-      <%= f.email_field :email, autocomplete: "email" %>
+      <%= f.email_field :email, autocomplete: "email", size: 30 %>
     </div>
 
     <div class="field">
       <%= f.label :password, t('user.password') %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", size: 30 %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation, t('user.password_confirmation') %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30 %>
     </div>
 
     <div class="actions">

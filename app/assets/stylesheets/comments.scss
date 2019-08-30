@@ -1,3 +1,30 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comment-table tr, th {
+  padding: 2px 20px;
+}
+
+// .comment-content {
+//   text-align: left;
+//   color: red;
+//   // width: 400px;
+// }
+
+// .comment-table td {
+//   padding: 5px 20px 0px 20px;
+//   text-align: left;
+// }
+
+.comment-content {
+  width: 550px;
+  padding: 5px 20px 0px 20px;
+  text-align: left;
+}
+
+.comment-command {
+  padding: 5px 20px 0px 20px;
+  text-align: right;
+}
