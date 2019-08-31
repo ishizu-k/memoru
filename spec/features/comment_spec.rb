@@ -16,10 +16,11 @@ RSpec.feature "コメント機能", type: :feature do
     click_button "ログイン"
   end
 
-  scenario 'コメントの管理', js: true do
+  scenario 'コメントの作成', js: true do
     visit meeting_log_path(@meetinglog1_id)
     fill_in 'comment_content', with: 'test'
     click_button "追加"
+    sleep 3.0
     expect(Comment.last.content).to eq 'test'
   end
 
