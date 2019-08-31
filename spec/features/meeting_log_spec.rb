@@ -74,7 +74,7 @@ RSpec.feature "対象の管理機能", type: :feature do
     expect(page).to have_field '備考欄', with: 'test-other'
     # 編集する
     fill_in '名前', with: 'alice'
-    click_button "編集"
+    click_button "更新"
     expect(page).to have_content "対象の記録を編集しました"
   end
 
@@ -102,7 +102,7 @@ RSpec.feature "対象の管理機能", type: :feature do
     # タグの付与
     visit  edit_meeting_log_path(@meetinglog1_id)
     check "meeting_log_tag_ids_#{@tag1_id}"
-    click_button "編集"
+    click_button "更新"
     # 該当のタグが付与されていれば検索にヒットする
     visit meeting_logs_path
     select 'test-tag', from: 'meeting_log_tag_id'
