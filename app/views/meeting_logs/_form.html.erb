@@ -26,7 +26,7 @@
 <table class="meetinglog-form">
   <tr>
     <th><%= image_tag 'icon_star.gif' %> <%= f.label :day, "when?" %></th>
-    <td><%= f.date_field :day, value: Date.today %></td>
+    <td><%= f.date_field :day %></td>
   </tr>
   <tr>
     <th><%= image_tag 'icon_star.gif' %> <%= f.label :place, "where?" %></th>

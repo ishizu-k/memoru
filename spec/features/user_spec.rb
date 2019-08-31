@@ -12,7 +12,7 @@ RSpec.feature "ユーザーの作成・削除とログイン・ログアウト",
     fill_in 'Eメールアドレス', with: 'tanaka@sample.com'
     fill_in 'パスワード', with: '000000'
     fill_in 'パスワード（確認）', with: '000000'
-    click_button "新規登録"
+    click_button "アカウント作成"
     expect(page).to have_content "アカウント登録が完了しました。"
     # 削除
     visit edit_user_registration_path

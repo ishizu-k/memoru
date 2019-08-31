@@ -19,7 +19,7 @@ RSpec.feature "タグの管理機能", type: :feature do
   scenario "タグの作成と削除" do
     visit tags_path
     # 作成
-    fill_in "タグ名", with: 'third-tag'
+    fill_in "タグ", with: 'third-tag'
     click_button "作成"
     expect(page).to have_content "新しいタグを作成しました"
     # 一覧
