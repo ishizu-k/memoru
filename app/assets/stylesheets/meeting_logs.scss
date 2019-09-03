@@ -34,15 +34,20 @@ p.new-line {
 
 .list {
   display: inline-block;
-  padding: 20px 20px 30px;
+  padding: 0px 10px 20px 10px;
   margin: 20px;
-  height: 350px;
+  height: 370px;
   width: 250px;
-  text-align: center;
   line-height: 25px;
   color: #474a4d;
   background-color: #fff;
   border-radius: 10px;
+  overflow: scroll;
+}
+
+table.table-list {
+  height: 300px;
+  width: 200px;
 }
 
 .lists {
@@ -158,7 +163,6 @@ table.profile th {
 table.profile-long {
   width: 100%;
   margin: 15px 0px 10px 0px;
-  // border-collapse: collapse;
 }
 
 table.profile-long tr {
@@ -181,4 +185,20 @@ table.profile-long td {
 
 .comment {
   text-align: center;
+}
+
+p.list-status {
+  text-align: left;
+  float: left;
+}
+
+p.edit-delete {
+  text-align: right;
+}
+
+.list-tag {
+  height: 55px;
+  text-align: left;
+  color: #89c3eb;
+  overflow: scroll;
 }

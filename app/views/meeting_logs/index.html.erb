@@ -5,19 +5,25 @@
     <% @meeting_logs.each do |m| %>
       <div class="list">
         <table class="table-list">
-        <tr><td class="list-image"><%= image_tag m.image.url %></td></tr>
-        <tr><td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td></tr>
-        <tr><td><%= m.position %></td></tr>
-        <tr><td>
-          <% m.tags.each do |tag| %>
-            #<%= tag.name %>
-            <% end %>
-        </td></tr>
-        <tr><td>
-          <%= m.status_i18n %>
-          <%= link_to t('action.edit'), edit_meeting_log_path(m.id) %>
-          <%= link_to t('action.delete'), meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"} %>
-        </td></tr>
+          <tr><td class="list-image"><%= link_to image_tag(m.image.url), meeting_log_path(m.id) %></td></tr>
+          <tr><td><%= link_to (m.name), meeting_log_path(m.id) %> さん</td></tr>
+          <tr><td><%= m.position %></td></tr>
+          <tr><td>
+            <div class="list-tag">
+              <% m.tags.each do |tag| %>
+                #<%= tag.name %>
+                <% end %>
+            </div>
+          </td></tr>
+          <tr>
+            <td class="list-bottom">
+            <p class="list-status"><%= link_to m.status_i18n, meeting_log_toggle_status_path(m), method: :patch, class: 'btn btn-default' %></p>
+            <p class="edit-delete">
+              <%= link_to t('action.edit'), edit_meeting_log_path(m.id), class: "btn btn-success" %>
+              <%= link_to t('action.delete'), meeting_log_path(m.id), method: :delete, data: {confirm: "対象の記録を削除しますか？"}, class: "btn btn-danger" %>
+            </p>
+            </td>
+          </tr>
         </table>
       </div>
     <% end %>
