@@ -11,6 +11,8 @@ class MeetingLogsController < ApplicationController
       @meeting_logs = current_user.meeting_logs.search(params[:meeting_log][:name]).page(params[:page])
     elsif params[:meeting_log][:name].blank? && params[:meeting_log][:tag_id]
       @meeting_logs = current_user.meeting_logs.joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page])
+    elsif params[:meeting_log][:name] && params[:meeting_log][:tag_id]
+      @meeting_logs = current_user.meeting_logs.search(params[:meeting_log][:name]).joins(:tags).search(params[:meeting_log][:tag_id]).page(params[:page]).page(params[:page])
     else
       redirect_to meeting_logs_path
     end
