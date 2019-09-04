@@ -1,31 +1,45 @@
 <!-- 対象一覧画面上部 -->
-<div class="meetinglog-index-menu">
-  <div class="circle-meetinglog">
-    <%= link_to name_only_meeting_logs_path do %>
-      <p class="new-line">名前だけ<br>表示する</p>
-    <% end %>
-  </div>
+<br>
 
-  <div class="circle-meetinglog">
-    <%= link_to  image_only_meeting_logs_path do %>
-      <p class="new-line">画像だけ<br>表示する</p>
-    <% end %>
-  </div>
+<table class="meetinglog-index-menu">
+  <tr>
+    <td>
+      <div class="circle-meetinglog">
+        <%= link_to name_only_meeting_logs_path do %>
+          <p class="new-line">名前だけ<br>表示する</p>
+        <% end %>
+      </div>
 
-  <div class="circle-meetinglog">
-    <%= link_to meeting_logs_path(sort_status: "true") do %>
-      <p class="new-line">記憶状況<br>ソート</p>
-    <% end %>
-  </div>
+      <div class="circle-meetinglog">
+        <%= link_to  image_only_meeting_logs_path do %>
+          <p class="new-line">画像だけ<br>表示する</p>
+        <% end %>
+      </div>
 
-  <div class="box-search">
-    <div class="search">
-      <%= form_with(model: MeetingLog.new, url: meeting_logs_path, local: true, method: 'get') do |f| %>
-        <%= f.select :tag_id, @tags.pluck(:name), prompt: "タグから検索" %>　
-        <%= f.text_field :name, placeholder: " 対象の名前から検索" %>
-        <%= f.hidden_field :search, value: 'true' %>　
-        <%= f.submit t('action.search'), class: "btn outline btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+      <div class="circle-meetinglog">
+        <%= link_to meeting_logs_path(sort_status: "true") do %>
+          <p class="new-line">記憶状況<br>ソート</p>
+        <% end %>
+      </div>
+    </td>
+
+    <td>
+      <div class="box-search">
+        <%= form_with(model: MeetingLog.new, url: meeting_logs_path, local: true, method: 'get') do |f| %>
+          <table class="search">
+            <tr>
+              <th><%= f.label :tag_id, "タグで検索" %></th>
+              <td><%= f.select :tag_id, @tags.pluck(:name), prompt: "選択する" %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :name, "対象の名前で検索" %></th>
+              <td><%= f.text_field :name, size: 35 %></td>
+            </tr>
+          </table>
+          <%= f.hidden_field :search, value: 'true' %>　
+          <%= f.submit t('action.search'), class: "btn outline btn-primary" %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
