@@ -48,9 +48,8 @@
   <tr>
     <th><%= t('meeting_log.tag') %></th>
 　  <td>
-      <% Tag.all.each do |tag| %>
-        <%= f.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false }, tag[:id] %>
-        <%= tag.name %>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text } %>&ensp;
       <% end %>
     </td>
   </tr>
