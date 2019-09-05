@@ -49,7 +49,7 @@
     <th><%= t('meeting_log.tag') %></th>
 　  <td>
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
-        <%= b.label { b.check_box + b.text } %>
+        <%= b.label { b.check_box + b.text } %>&ensp;
       <% end %>
     </td>
   </tr>
