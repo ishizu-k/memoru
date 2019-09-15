@@ -94,9 +94,9 @@ textarea {
 }
 
 .btn-primary {
-    background: #89c3eb; //ボタンの背景色
-    color: #fff; //ボタンのテキストの色
-    border: 1px solid #89c3eb; //アウトラインのみのボタンの線の色
+    background: #89c3eb;
+    color: #fff;
+    border: 1px solid #89c3eb;
 }
 .btn-primary:hover, .btn-primary:focus,
 .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
@@ -108,10 +108,10 @@ textarea {
 .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
 .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
 .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-    background: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
-    color: #89c3eb; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    background: #fff;
+    color: #89c3eb;
 }
 
 .btn-primary.outline {
-    border: 1px solid #89c3eb; //アウトラインのみのボタンの線の色
+    border: 1px solid #89c3eb;
 }

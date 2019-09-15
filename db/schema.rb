@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_101801) do
+ActiveRecord::Schema.define(version: 2019_09_15_102340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_101801) do
 
   create_table "meeting_logs", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.date "day", default: "2019-08-30", null: false
+    t.date "day", default: "2019-09-14", null: false
     t.string "place", default: "", null: false
     t.string "memo", default: "", null: false
     t.string "how", default: "", null: false
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_101801) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,4 +80,5 @@ ActiveRecord::Schema.define(version: 2019_08_27_101801) do
 
   add_foreign_key "comments", "meeting_logs"
   add_foreign_key "meeting_logs", "users"
+  add_foreign_key "tags", "users"
 end

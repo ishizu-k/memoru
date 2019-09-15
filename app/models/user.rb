@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { maximum: 30 }, uniqueness: true
   has_many :meeting_logs
+  has_many :tags
   mount_uploader :image, ImageUploader
 end
