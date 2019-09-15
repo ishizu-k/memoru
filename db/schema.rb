@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_102340) do
 
   create_table "meeting_logs", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.date "day", default: "2019-08-30", null: false
+    t.date "day", default: "2019-09-14", null: false
     t.string "place", default: "", null: false
     t.string "memo", default: "", null: false
     t.string "how", default: "", null: false

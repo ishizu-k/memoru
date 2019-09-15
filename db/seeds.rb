@@ -28,11 +28,14 @@
       hometown: hometown,
       other: "特にない",
     )
-    end
+  end
+  user.tags.build(name: "学校")
+  user.tags.build(name: "バイト関係")
+  user.tags.build(name: "近所")
   user.save!
 end
 
-5.times do |t|
-  tag = Tag.new(name: "タグ#{t}")
-  tag.save!
-end
+# 5.times do |t|
+#   tag = Tag.new(name: "タグ#{t}")
+#   tag.save!
+# end
