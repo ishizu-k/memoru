@@ -4,7 +4,7 @@ class MeetingLogsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :show, :destroy]
 
   def index
-    @tags = Tag.all
+    @tags = current_user.tags
     if params[:meeting_log].nil?
       @meeting_logs = current_user.meeting_logs.order(created_at: :desc).page(params[:page])
     elsif params[:meeting_log][:search] && params[:meeting_log][:tag_id].blank?
@@ -45,7 +45,7 @@ class MeetingLogsController < ApplicationController
   end
 
   def show
-    @tags = Tag.all
+    @tags = current_user.tags
     @comments = @meeting_log.comments
     @comment = @meeting_log.comments.build
   end

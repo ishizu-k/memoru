@@ -2,13 +2,14 @@ class TagsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tags = Tag.all.page
+    @tags = current_user.tags.page
     @tag = Tag.new
   end
 
   def create
-    @tag = Tag.new(tag_params)
-    @tags = Tag.all
+    @tag = current_user.tags.build(tag_params)
+    # @tag = Tag.new(tag_params)
+    # @tags = Tag.all
     if @tag.save
       redirect_to tags_path
       flash[:notice] = "新しいタグを作成しました"
