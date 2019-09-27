@@ -6,16 +6,17 @@ RSpec.feature "対象の管理機能", type: :feature do
       @meeting_log1 = FactoryBot.create(:meeting_log, :skip_validate)
       @meetinglog1_id = @meeting_log1.id
       @meeting_log2 = FactoryBot.create(:second_meeting_log)
-      # タグの作成
-      @tag1 = FactoryBot.create(:tag)
-      @tag1_id = @tag1.id
-      @tag2 = FactoryBot.create(:second_tag)
-      @tag2_id = @tag2.id
       # ログイン
       visit new_user_session_path
       fill_in 'Eメールアドレス', with: 'test@test.com'
       fill_in 'パスワード', with: '111111'
       click_button "ログイン"
+      # タグの作成
+      visit tags_path
+      fill_in "タグ", with: 'test-tag'
+      click_button "作成"
+      fill_in "タグ", with: 'second-tag'
+      click_button "作成"
     end
 
   scenario "対象の一覧画面（そのユーザーが作成した対象のみ表示）" do
@@ -33,8 +34,7 @@ RSpec.feature "対象の管理機能", type: :feature do
     fill_in 'what?', with: '裁判に参加した'
     fill_in 'how?', with: 'お互いに話を聞いていなかった'
     attach_file 'イメージ画像', "app/assets/images/nurse.png"
-    check "meeting_log_tag_ids_#{@tag1_id}"
-    check "meeting_log_tag_ids_#{@tag2_id}"
+    check "test-tag"
     fill_in '年齢', with: '10'
     fill_in '外見的特徴', with: '水色のエプロンワンピース'
     select '2009', from: 'meeting_log_birth_1i'
@@ -101,7 +101,7 @@ RSpec.feature "対象の管理機能", type: :feature do
   scenario "タグからの検索" do
     # タグの付与
     visit  edit_meeting_log_path(@meetinglog1_id)
-    check "meeting_log_tag_ids_#{@tag1_id}"
+    check "test-tag"
     click_button "更新"
     # 該当のタグが付与されていれば検索にヒットする
     visit meeting_logs_path
