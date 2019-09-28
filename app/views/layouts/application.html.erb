@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Memoru</title>
+    <title>memoru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -33,12 +33,12 @@
         <%= content_tag(:div, value, class: "flash flash_#{key}") %>
       <% end %>
 
-      <div class="container">
+      <div id="contents">
         <%= yield %>
       </div>
 
       <footer>
-        <p id="copyright">©2019 memoru</p>
+        <p>©2019 memoru</p>
       </footer>
     </div>
   </body>

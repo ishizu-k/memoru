@@ -1,8 +1,14 @@
-body {
+html, body {
+  height: 100%;
   background-color: #89c3eb;
 }
 
+#contents {
+  padding-bottom: 100px;
+}
+
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -16,17 +22,20 @@ header {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   height: 50px;
   width: 100%;
-  margin-top: auto;
-  padding-top: 50px;
+  padding-top: 15px;
   text-align: center;
-  color: #fff;
+  color: #89c3eb;
+  background-color: #fff;
 }
 
 .navbar-brand {
   margin-left: 10px;
   color: #89c3eb;
+  font-size: 2em;
 }
 
 .list-inline {
@@ -42,20 +51,17 @@ li {
 }
 
 h1, h3 {
-  margin: 3em 1em 1.5em;
+  margin: 2em 1em 1.5em;
   text-align: center;
   color: #fff;
 }
 
-.box_top {
-  padding: 30px 10px;
-  margin: auto;
-  width: 600px;
+.top {
+  margin-bottom: 80px;
+  font-size: 1.5em;
   text-align: center;
-  line-height: 25px;
-  color: #474a4d;
-  background-color: #fff;
-  border-radius: 10px;
+  line-height: 35px;
+  color: #fff;
 }
 
 .flash {
