@@ -17,7 +17,7 @@ class MeetingLog < ApplicationRecord
   belongs_to :user
   enum status: { memorizing: 0, memorized: 1 }
   enum blood: { unknown: 0, A_type: 1, B_type: 2, O_type: 3, AB_type: 4 }
-  paginates_per 9
+  paginates_per 8
   mount_uploader :image, ImageUploader
 
   search_scope :search do
