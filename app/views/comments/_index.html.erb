@@ -11,7 +11,7 @@
         <td class="comment-command">
           <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>（No.<%= comment.id %>）
           <%= link_to t('action.edit'), edit_meeting_log_comment_path(comment.meeting_log_id, comment.id), remote: true %>
-          <%= link_to t('action.delete'), meeting_log_comment_path(comment.meeting_log_id, comment.id), method: :delete, remote: true, data: {confirm: "対象の記録を削除しますか？"} %>
+          <%= link_to t('action.delete'), meeting_log_comment_path(comment.meeting_log_id, comment.id), method: :delete, remote: true, data: {confirm: "対象のエピソードを削除しますか？"} %>
         </td>
       </tr>
     </table>
