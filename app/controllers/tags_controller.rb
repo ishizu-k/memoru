@@ -8,6 +8,7 @@ class TagsController < ApplicationController
 
   def create
     @tag = current_user.tags.build(tag_params)
+    @tags = current_user.tags.page
     if @tag.save
       redirect_to tags_path
       flash[:notice] = "新しいタグを作成しました"
